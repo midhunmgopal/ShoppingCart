@@ -1,6 +1,8 @@
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import React from "react";
 import { AuthNavigationProps } from "navigation/type";
+import { useDispatch } from "react-redux";
+import { actions } from "./slicer";
 
 const styles = StyleSheet.create({
   button: {
@@ -16,7 +18,10 @@ const styles = StyleSheet.create({
 });
 
 const Login: React.FC<AuthNavigationProps<"Login">> = ({ navigation }) => {
+  const dispatch = useDispatch();
+
   const oPressLogin = () => {
+    dispatch(actions.loginSuccess());
     console.log("navigation");
   };
 
