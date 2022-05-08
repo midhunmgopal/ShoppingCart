@@ -3,12 +3,13 @@ import React from "react";
 import CarouselItem from "./CarouselItem";
 
 const keyExtractor = (_: unknown, index: number) => `${index}`;
-const renderItem = ({ item }) => <CarouselItem />;
+const renderItem = ({ item, index }: { item: any; index: number }) => (
+  <CarouselItem index={index} />
+);
 
 const Carousel = () => {
   return (
     <View>
-      <Text>Carousel</Text>
       <FlatList
         data={[1, 2, 3, 4]}
         renderItem={renderItem}

@@ -10,10 +10,24 @@ const styles = StyleSheet.create({
     backgroundColor: "red",
   },
 });
+const cards = [
+  { backgroundColor: "powderblue" },
+  { backgroundColor: "green" },
+  { backgroundColor: "yellow" },
+];
 
-const CarouselItem = () => {
+export interface CarouselItemProp {
+  index: number;
+}
+
+const getCardColor = (index: number) => {
+  return cards[index];
+};
+
+const CarouselItem = (props: CarouselItemProp) => {
+  const { index } = props;
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, getCardColor(index)]}>
       <Text>CarouselItem</Text>
     </View>
   );

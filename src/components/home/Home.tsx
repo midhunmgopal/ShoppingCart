@@ -1,6 +1,9 @@
-import { View, Text } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import React from "react";
 import Carousel from "./components/Carousel";
+import Category from "./category/Category";
+import Spacer from "common/Spacer";
+import { HomeNavigationProps } from "navigation/type";
 
 /**
  * a carousel view
@@ -8,11 +11,18 @@ import Carousel from "./components/Carousel";
  * main categories
  */
 
-const Home = () => {
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});
+
+const Home: React.FC<HomeNavigationProps<"Home">> = () => {
   return (
-    <View>
+    <View style={styles.container}>
       <Carousel />
-      <Text>Home</Text>
+      <Spacer />
+      <Category />
     </View>
   );
 };
